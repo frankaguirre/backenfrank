@@ -13,9 +13,10 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.create(
       nombre: params[:nombre],
       tipo: params[:tipo],
-      ps: params[:ps],
       ataque: params[:ataque],
-      defensa: params[:defensa]
+      ps: params[:ps],
+      defensa: params[:defensa],
+      foto: params[:foto]
     )
     render json: @pokemon
   end
@@ -25,15 +26,16 @@ class PokemonsController < ApplicationController
     pokemon.update(
       nombre: params[:nombre],
       tipo: params[:tipo],
-      ps: params[:ps],
       ataque: params[:ataque],
-      defensa: params[:defensa]
+      ps: params[:ps],
+      defensa: params[:defensa],
+      foto: params[:foto]
     )
     render json: @pokemon
   end
 
   def destroy
     @pokemon = Pokemon.find(params[:id])
-    pokemon.destroy
+    @pokemon.destroy
   end
 end
